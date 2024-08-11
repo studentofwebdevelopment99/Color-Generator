@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Javascript</title>
+    <style>
+        #start{
+        width: 70px;
+            background-color: brown;
+            color: white;
+            border-radius: 5px ;
+            padding: 10px;
+            border: 2px solid yellow;
+            cursor: pointer;
+            margin-bottom: 3px;
+        }
+        #stop{
+        width: 70px;
+            background-color: black;
+            color: white;
+            border-radius: 5px ;
+            padding: 10px;
+            border: 2px solid yellow;
+            cursor: pointer;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Changing Colors</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+<script>
+
+    let startBtn = document.querySelector("#start");
+    let stopBtn = document.querySelector("#stop");
+
+
+    function RandomColor(){
+        
+        hexValue = "0123456789ABCDEF"
+        Color = "#";
+
+       for(let i=0; i<6;i++){
+        Color += hexValue[Math.floor(Math.random()*16)]
+       }
+       return Color;
+    }
+
+    let Reff;
+    function StartChange(){
+    if(!Reff){
+         Reff =   setInterval(Start,2000)
+    }
+
+}
+   
+    let Start = function (){
+     document.body.style.backgroundColor = RandomColor()
+
+    }
+
+    // changing simple 
+
+  
+
+    function StopChange(){
+        clearInterval(Reff)
+        Reff = null;
+        console.log("Stop")
+    }
+
+startBtn.addEventListener("click",StartChange)
+
+stopBtn.addEventListener("click",StopChange)
+</script>
+  
+</body>
+</html>
